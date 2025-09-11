@@ -20,7 +20,7 @@ const Contacts: React.FC = () => {
     try {
       setLoading(true);
       const res = await axios.get<{ status: number; success: boolean; data: Contact[]; message: string }>(
-        "http://localhost:3001/contacts"
+        `${import.meta.env.VITE_BACKEND_URL}/contacts`
       );
       setContacts(res.data.data);
       setLoading(false);

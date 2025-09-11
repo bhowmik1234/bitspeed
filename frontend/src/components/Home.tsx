@@ -13,7 +13,7 @@ const Home: React.FC = () => {
     if (!email && !phone) return alert("Provide email or phone");
     try {
       setLoading(true);
-      await axios.post("http://localhost:3001/identify", { email, phoneNumber: phone });
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/identify`, { email, phoneNumber: phone });
       setLoading(false);
       setEmail("");
       setPhone("");
